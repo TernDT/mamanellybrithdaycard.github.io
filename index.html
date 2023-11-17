@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta de Cumpleaños Mamá Nelly</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #B6C0D2;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .carta {
+            background-color: #E8D0A9;
+            width: 80%; /* Ajustar ancho*/
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s, transform 1s;
+        }
+
+        .carta.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.5em; /* Ajustar el tamaño */
+        }
+
+        p {
+            color: #666;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="carta">
+        <h1>Feliz Cumpleaños Mamá Nelly</h1>
+        <p>¡Espero que tengas un maravilloso y día increíble!</p>
+        <img src="babyyoda1.jpg">
+        <button onclick="mostrarMensaje()">¡Haz clic para recibir tu mensaje de cumpleaños!</button>
+        <button onclick="recargarPagina()" style="margin-top: 10px";>Recargar  </button>
+    </div>
+        
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $(".carta").addClass("show");
+        });
+
+        function mostrarMensaje() {
+             var carta = document.querySelector(".carta");
+
+            // Crea un nuevo elemento de imagen
+            var imagenMamelucos = document.createElement("img");
+            imagenMamelucos.src = "mamelucos.jpeg"; // Imagen baby yoda
+            imagenMamelucos.alt = "Imagen Mamelucos";
+            imagenMamelucos.style.maxWidth = "100%";
+            imagenMamelucos.style.height = "auto";
+            imagenMamelucos.style.borderRadius = "5px";
+            imagenMamelucos.style.marginTop = "20px";
+
+            // Adjuntar la imagen al final de la carta
+            carta.appendChild(imagenMamelucos);
+
+            // Crear un nuevo elemento de párrafo con el mensaje
+            var mensaje = document.createElement("p");
+            mensaje.textContent = "¡Feliz cumpleaños! Que este año esté lleno de alegría, que Dios te mucha salud y éxitos. Te deseamos lo mejor, atentamente tus nietos Kenneth y Pamela";
+            mensaje.style.display = "none";
+
+            // Adjuntar mensaje al final de la carta
+            carta.appendChild(mensaje);
+
+            // Aplicar efecto fadeIn al mensaje
+            $(mensaje).hide().fadeIn(1000);
+        }
+
+        //Función para recargar pagina
+        function recargarPagina(){
+            location.reload();
+        }
+    </script>
+
+</body>
+</html>
